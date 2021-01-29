@@ -10,25 +10,23 @@ type CybrButtonProps = {
   small?: boolean
 }
 
-const CybrButton = ({ title, link, small = false }: CybrButtonProps): JSX.Element => {
-  const buttonClassNames = classNames({
-    [styles.cybrBtn]: true,
-    [styles.cybrBtnSmall]: small,
-  })
-
-  return (
-    <Link href={link}>
-      <button className={buttonClassNames}>
-        {title} <span aria-hidden>_</span>
-        <span aria-hidden className={styles.cybrBtn__glitch}>
-          Cyber_
-        </span>
-        <span aria-hidden className={styles.cybrBtn__tag}>
-          R25
-        </span>
-      </button>
-    </Link>
-  )
-}
+const CybrButton = ({ title, link = '/', small = false }: CybrButtonProps): JSX.Element => (
+  <Link href={link}>
+    <button
+      className={classNames({
+        [styles.cybrBtn]: true,
+        [styles.cybrBtnSmall]: small,
+      })}
+    >
+      {title} <span aria-hidden>_</span>
+      <span aria-hidden className={styles.cybrBtn__glitch}>
+        Cyber_
+      </span>
+      <span aria-hidden className={styles.cybrBtn__tag}>
+        R25
+      </span>
+    </button>
+  </Link>
+)
 
 export default CybrButton
